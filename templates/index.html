@@ -1,0 +1,136 @@
+{% extends 'masters/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'partials/_messages.html' %}
+
+<div class="pagetitle">
+    <h1>Layanan Survey Resiliensi Mahasiswa - FIP UNIMED</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Beranda</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section dashboard">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <!-- Card with an image on left -->
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4 col-lg-4 col-xxl-3">
+                        <img src="{% static 'build/img/study.jpg' %}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8 col-lg-8 col-xxl-9">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Latar Belakang</h5>
+                            <p class="lh-lg">Riset ini berfokus pada pengembangan instrumen asesmen resiliensi akademik
+                                sebagai
+                                praktek mahasiswa di Jurusan Bimbingan Mahasiswa dengan menggunakan aplikasi sistem
+                                informasi.
+                                Instrument resiliensi akademik akan dipergunakan sebagai praktek pada laboratorium
+                                konseling,
+                                sehingga berdampak baik bagi pembelajaran dengan menggunakan instrument yang telah
+                                terukur dan
+                                teruji.</p>
+
+                            <!-- Default Accordion -->
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Tujuan Penelitian
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body lh-lg">
+                                            <strong>Tujuan dari penelitian </strong> ini adalah untuk mengembangkan
+                                            instrument
+                                            asesmen resiliensi akademik sebagai praktek mahasiswa di Jurusan Bimbingan
+                                            Konseling dengan
+                                            menggunakan aplikasi sistem informasi.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Manfaat Penelitian
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body lh-lg">
+                                            <strong>Secara Teoritis, </strong> bermanfaat sebagai referensi dan wawasan
+                                            baru
+                                            bagi para cendikiawan untuk melakukan kajian terkait resiliensi akademik
+                                            bagi
+                                            mahasiswa di pendidikan tinggi terhadap programprogram pendidikan yang
+                                            relevan
+                                            dengan topik yang dibahas pada penelitian ini.
+                                            <br><br>
+                                            <strong>Secara Praktis, </strong> riset ini menyajikan pengembangan
+                                            instrumen
+                                            asesmen resiliensi akademik dengan aplikasi sistem informasi yang dapat
+                                            digunakan
+                                            mahasiswa pada laboratorium konseling, sehingga dapat bermanfaat dalam
+                                            membuat
+                                            kebijakan bagi para stakeholder akademis di Universitas Negeri Medan.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End Default Accordion Example -->
+
+                            {% if user.is_superuser %}
+                            {% elif user_profile.fullname and user_profile.faculty and user_profile.major and user_profile.batch %}
+                            {% else %}
+                            {% include 'partials/_profile_modal.html' %}
+                            {% endif %}
+                            {% include 'partials/_response_modal.html' %}
+
+
+
+                            {% if user.is_superuser %}
+                            <button type="button" class="btn btn-primary btn-sm disabled">Isi Kuisioner</button>
+                            {% elif user_profile.fullname and user_profile.faculty and user_profile.major and user_profile.batch %}
+                            <a href="surveys/create/survey-resiliensi-mahasiswa-unimed/"><button type="button"
+                                    class="btn btn-primary btn-sm">Isi Kuisioner</button></a>
+                            {% else %}
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#basicModal">Isi Kuisioner</button></a>
+                            {% endif %}
+
+
+                        </div>
+
+                        <!-- <div class="card-footer text-center">
+                </div> -->
+
+
+                    </div>
+                </div>
+            </div><!-- End Card with an image on left -->
+
+        </div>
+    </div>
+</section>
+
+<!-- Vendor JS Files -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- Open modal conditional-->
+<script>
+    $(document).ready(function () {
+        $('#basicModal').modal('show')
+    })
+</script>
+
+{% endblock %}

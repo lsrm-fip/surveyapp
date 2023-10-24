@@ -1,0 +1,21 @@
+<div class="modal fade" id="basicModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Informasi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Data Anda belum lengkap. Silahkan lengkapi data diri Anda terlebih dahulu sebelum
+                memulai survey.
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <a href="{% url 'userprofile' %}">
+                    <button type="button" class="btn btn-primary">Ke laman profil</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

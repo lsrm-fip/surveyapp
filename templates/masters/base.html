@@ -1,0 +1,59 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Survey Resiliensi Mahasiswa Unimed
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{% static 'build/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body id=bg style="background-image: url({% static 'build/img/unimed-bg.png' %});" class="d-flex flex-column min-vh-100">
+
+    {% include 'partials/_header.html' %}
+    {% include 'partials/_sidebar.html' %}
+
+    <main id="main" class="main">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer mt-auto">
+        <div class="copyright">
+            &copy; <strong><span>2023</span> | Layanan Survey Resiliensi Mahasiswa - FIP Unimed</strong>
+        </div>
+    </footer>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendors/echarts/echarts.min.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'build/js/main.js' %}"></script>
+
+</body>
+
+</html>

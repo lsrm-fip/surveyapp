@@ -1,0 +1,83 @@
+{% extends 'masters/base_auth.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <section class="section register d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div class="col-lg-5 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                    <div class="d-flex justify-content-center logo d-flex w-auto">
+                        <img src="{% static 'build/img/logo-unimed.png' %}" alt="">
+                    </div>
+                    <div class="d-flex justify-content-center py-4 logo d-flex text-center w-auto">
+                        <span class="d-block">Survey Resiliensi Mahasiswa Universitas Negeri Medan</span>
+                    </div>
+
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+
+                            <div class="pt-4 pb-2">
+                                <h5 class="card-title text-center pb-0 fs-4">Registrasi Akun</h5>
+                                <p class="text-center small">Silahkan isi data berikut untuk masuk ke aplikasi</p>
+                            </div>
+
+                            <form action="{% url 'register' %}" method="post" class="row g-3 needs-validation"
+                                novalidate>
+                                {% csrf_token %}
+                                {% include 'partials/_messages.html' %}
+
+                                <div class="col-12">
+                                    <label for="yourEmail" class="form-label">Alamat Surel</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i
+                                                class="bx bx-envelope"></i></span>
+                                        <input type="email" name="email" class="form-control" id="yourEmail"
+                                            value="{{fieldValues.email}}" required>
+                                        <div class="invalid-feedback emailFeedbackArea"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="passwordField" class="form-label">Kata Sandi</label>
+                                    <input type="password" name="password" class="form-control" id="passwordField"
+                                        required>
+                                    <div class="invalid-feedback"></div>
+                                    <p class="small float-end mb-0 pt-2 showPasswordToggle">TAMPILKAN</p>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="Password2Field" class="form-label">Konfirmasi Kata Sandi</label>
+                                    <input type="password" name="password2" class="form-control" id="password2Field"
+                                        required>
+                                    <div class="invalid-feedback">Password tidak sesuai!</div>
+                                </div>
+
+                                <div class="col-12 pt-4">
+                                    <button class="btn btn-primary submit-btn w-100" type="submit">Buat Akun</button>
+                                </div>
+                                <div class="col-12">
+                                    <p class="small mb-0">Sudah punya akun? <a href="{% url 'login' %}">Login</a>
+                                    </p>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+<script src="{% static 'build/js/register.js' %}"></script>
+
+{% endblock %}

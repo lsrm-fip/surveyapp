@@ -1,0 +1,361 @@
+{% extends 'masters/base.html' %}
+{% block content %}
+
+
+<div class="pagetitle">
+    <h1>Ringkasan Hasil</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'homepage:index' %}">Beranda</a></li>
+            <li class="breadcrumb-item active">Hasil</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section dashboard">
+    <div class="row">
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-xxl-4 col-md-4"> <!-- Jumlah Partisipan -->
+                    <div class="card info-card sales-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Jumlah Partisipan <span>| Total</span></h5>
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>{{jumlah_partisipan}}</h6>
+                                    <span class="text-warning small pt-1 fw-bold">Mahasiswa</span> |
+                                    <span class="text-success small pt-1 fw-bold">({{jumlah_laki_laki}} Lk)</span>
+                                    <span class="text-danger small pt-1 fw-bold">({{jumlah_perempuan}} Pr)</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% include 'partials/_response_modal.html' %}
+                    </div>
+                </div> <!-- Jumlah Partisipan -->
+
+                <div class="col-xxl-4 col-md-4"> <!-- Total Fakultas -->
+                    <div class="card info-card revenue-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Asal Fakultas <span>| Total</span></h5>
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bx bxs-bank"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>{{jumlah_fakultas}}</h6>
+                                    <span class="text-warning small pt-1 fw-bold">Fakultas</span>
+                                    <span class="text-muted small pt-2 ps-1">berpartisipasi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Total Fakultas -->
+
+                <div class="col-xxl-4 col-md-4"> <!-- Total Jurusan -->
+                    <div class="card info-card customers-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Asal Jurusan <span>| Total</span></h5>
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="ri ri-book-2-fill"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>{{jumlah_jurusan}}</h6>
+                                    <span class="text-warning small pt-1 fw-bold">Jurusan</span>
+                                    <span class="text-muted small pt-2 ps-1">berpartisipasi</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!-- End Total Jurusan -->
+
+                <div class="col-xxl-4 col-lg-6"> <!-- Radar Chart -->
+                    <div class="card">
+                        <div class="card-body pb-0">
+                            <h5 class="card-title">Radar Chart<span> | Anda vs Rata-Rata</span></h5>
+                            <div id="radarChart" style="min-height: 400px;" class="echart"></div>
+                            <script>
+                                var avg_score = JSON.parse('{{skor_rata_rata}}')
+                                var user_score = JSON.parse('{{skor_anda}}')
+                                document.addEventListener("DOMContentLoaded", () => {
+                                    var radarChart = echarts.init(document.querySelector("#radarChart")).setOption({
+                                        legend: {
+                                            data: ['Skor Rata-Rata', 'Skor Anda']
+                                        },
+                                        radar: {
+                                            // shape: 'circle',
+                                            indicator: [{
+                                                name: 'Ketenangan',
+                                                max: 6
+                                            },
+                                            {
+                                                name: 'Komitmen',
+                                                max: 6
+                                            },
+                                            {
+                                                name: 'Kontrol',
+                                                max: 6
+                                            },
+                                            {
+                                                name: 'Koordinasi',
+                                                max: 6
+                                            },
+                                            {
+                                                name: 'Empati',
+                                                max: 6
+                                            },
+                                            {
+                                                name: 'Kegigihan',
+                                                max: 6
+                                            },
+                                            {
+                                                name: 'Adaptasi',
+                                                max: 6
+                                            }
+                                            ]
+                                        },
+                                        series: [{
+                                            name: 'Budget vs spending',
+                                            type: 'radar',
+                                            data: [{
+                                                value: avg_score,
+                                                name: 'Skor Rata-Rata'
+                                            },
+                                            {
+                                                value: user_score,
+                                                name: 'Skor Anda'
+                                            }
+                                            ]
+                                        }]
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div> <!-- End Radar Chart -->
+
+                {% if user.is_superuser %}
+                {% else %}
+                <div class="col-xxl-4 col-lg-6"> <!-- Kesimpulan -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Kesimpulan <span>| Umum</span></h5>
+                            <div class="activity-content">
+                                Resiliensi akademik Anda secara keseluruhan berada pada kategori <b>Cukup</b>
+                            </div>
+                            <h5 class="card-title"><span>Rincian per topik</span></h5>
+                            <div class="activity">
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.0}}</div>
+                                    {% if skor_anda.0 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.0}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.0 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.0}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.0}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.1}}</div>
+                                    {% if skor_anda.1 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.1}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.1 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.1}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.1}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.2}}</div>
+                                    {% if skor_anda.2 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.2}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.2 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.2}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.2}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.3}}</div>
+                                    {% if skor_anda.3 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.3}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.3 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.3}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.3}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.4}}</div>
+                                    {% if skor_anda.4 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.4}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.4 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.4}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.4}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.5}}</div>
+                                    {% if skor_anda.5 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.5}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.5 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.5}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.5}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.6}}</div>
+                                    {% if skor_anda.6 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.6}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.6 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.6}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.6}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Kesimpulan -->
+                {% endif %}
+
+                <div class="col-xxl-4 col-lg-6"> <!-- Proposi Fakultas -->
+                    <div class="card">
+                        <div class="card-body pb-0">
+                            <h5 class="card-title">Proporsi Fakultas <span></span></h5>
+                            <div id="proporsi_fakultas" style="min-height: 400px;" class="echart"></div>
+                            <script>
+                                var data = JSON.parse("{{proporsi_fakultas|escapejs}}");
+                                document.addEventListener("DOMContentLoaded", () => {
+                                    echarts.init(document.querySelector("#proporsi_fakultas")).setOption({
+                                        tooltip: {
+                                            trigger: 'item'
+                                        },
+                                        legend: {
+                                            top: '5%',
+                                            left: 'center'
+                                        },
+                                        series: [{
+                                            name: 'Asal Fakultas',
+                                            type: 'pie',
+                                            radius: ['40%', '70%'],
+                                            avoidLabelOverlap: false,
+                                            label: {
+                                                show: false,
+                                                position: 'center'
+                                            },
+                                            emphasis: {
+                                                label: {
+                                                    show: true,
+                                                    fontSize: '18',
+                                                    fontWeight: 'bold'
+                                                }
+                                            },
+                                            labelLine: {
+                                                show: false
+                                            },
+                                            data: data
+                                        }]
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div><!-- End Proporsi Fakultas -->
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

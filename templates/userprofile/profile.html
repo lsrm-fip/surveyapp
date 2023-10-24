@@ -1,0 +1,163 @@
+{% extends 'masters/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'partials/_messages.html' %}
+{% load static %}
+
+
+<div class="pagetitle">
+    <h1>Profil</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'homepage:index' %}">Beranda</a></li>
+            <li class="breadcrumb-item active">Profil</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                    <img src="{% static 'build/img/user.png' %}" alt="Profile" class="rounded-circle">
+                    {% if user_profile.fullname %}
+                    <h2>{{user_profile.fullname}}</h2>
+                    {% else %}
+                    <h2><em>User</em></h2>
+                    {% endif %}
+
+                    {% if user.is_superuser %}
+                    <h3>Admin</h3>
+                    {% else %}
+                    <h3>Mahasiswa</h3>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xl-8">
+
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Data
+                                Diri</button>
+                        </li>
+                        {% if user.is_superuser %}
+                        {% else %}
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Ubah
+                                Data</button>
+                        </li>
+                        {% endif %}
+                    </ul>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-content pt-2">
+                        <!-- Informasi Data Diri -->
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5 class="card-title">Informasi Data Diri</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
+                                {% if user_profile.fullname %}
+                                <div class="col-lg-9 col-md-8">{{user_profile.fullname}}</div>
+                                {% else %}
+                                <div class="col-lg-9 col-md-8">User</div>
+                                {% endif %}
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Email</div>
+                                <div class="col-lg-9 col-md-8">{{user.email}}</div>
+                            </div>
+                            {% if user.is_superuser %}
+                            {% else %}
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
+                                <div class="col-lg-9 col-md-8">{{user_profile.get_gender_display}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Fakultas</div>
+                                {% if user_profile.faculty %}
+                                <div class="col-lg-9 col-md-8">{{user_profile.faculty}}</div>
+                                {% else %}
+                                <div class="col-lg-9 col-md-8">---</div>
+                                {% endif %}
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Jurusan</div>
+                                {% if user_profile.major %}
+                                <div class="col-lg-9 col-md-8">{{user_profile.major}}</div>
+                                {% else %}
+                                <div class="col-lg-9 col-md-8">---</div>
+                                {% endif %}
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Angkatan</div>
+                                {% if user_profile.batch %}
+                                <div class="col-lg-9 col-md-8">{{user_profile.batch}}</div>
+                                {% else %}
+                                <div class="col-lg-9 col-md-8">---</div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <!-- Edit Data -->
+                        {% if user.is_superuser %}
+                        {% else %}
+                        <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                            <form action="{% url 'userprofile'%}" method="post">
+                                {% csrf_token %}
+                                {% crispy form %}
+                        </div>
+                        {% endif %}
+
+                    </div> <!-- End Bordered Tabs -->
+                </div>
+                {% include 'partials/_response_modal.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+    function myfunc() {
+        document.getElementById("id_major").innerHTML = "";
+        $.ajax({
+            type: 'GET',
+            url: "get-majors/",
+            data: {
+                faculty: $("#id_faculty").val(),
+            },
+            dataType: 'json',
+            success: function (response) {
+                var select = document.getElementById("id_major");
+                for (var i = 0; i < response.majors.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = response.majors_id[i]["id"];
+                    option.innerHTML = response.majors[i]["major"];
+                    select.appendChild(option);
+                }
+            },
+        });
+    }
+    document.getElementById("id_faculty").addEventListener("change", myfunc);
+    document.getElementById("id_major").addEventListener("click", myfunc);
+</script>
+
+{% endblock %}
+
+<script>
+    // Open modal conditional
+    $(document).ready(function () {
+        $('#responseModal').modal('show')
+    })
+</script>

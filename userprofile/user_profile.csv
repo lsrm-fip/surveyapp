@@ -1,0 +1,64 @@
+content:ProfileList,,,,,,,,,content:FacultyList
+,owner_email,fullname,gender,faculty,major,batch,,,faculty_name
+user1,user1@gmail.com,user1,P,Fakultas Ekonomi,Bisnis Digital,2020,,,Fakultas Ilmu Pendidikan
+user2,user2@gmail.com,user2,L,Fakultas Teknik,Pendidikan Bahasa Inggris,2022,,,Fakultas Bahasa dan Seni
+user3,user3@gmail.com,user3,P,Fakultas Bahasa dan Seni,Pendidikan Bahasa Inggris,2021,,,Fakultas Ilmu Sosial
+user4,user4@gmail.com,user4,P,Fakultas Ilmu Sosial,Sastra Indonesia,2020,,,FMIPA
+user5,user5@gmail.com,user5,L,Fakultas Ekonomi,Manajemen,2020,,,Fakultas Teknik
+user6,user6@gmail.com,user6,P,Fakultas Ilmu Sosial,major_name,2018,,,FIK
+user7,user7@gmail.com,user7,L,Fakultas Ekonomi,PPBK,2019,,,Fakultas Ekonomi
+user8,user8@gmail.com,user8,P,Fakultas Bahasa dan Seni,Arsitektur,2019,,,
+user9,user9@gmail.com,user9,P,Fakultas Ekonomi,Pendidikan TIK,2023,,,content:MajorList
+user10,user10@gmail.com,user10,L,Fakultas Teknik,Biologi,2022,,,major_name
+user11,user11@gmail.com,user11,P,Fakultas Ilmu Pendidikan,Pendidikan Akuntansi,2020,,,PGSD
+user12,user12@gmail.com,user12,P,Fakultas Teknik,Bisnis Digital,2022,,,PGPAUD
+user13,user13@gmail.com,user13,L,Fakultas Ilmu Sosial,Pendidikan Akuntansi,2021,,,PPBK
+user14,user14@gmail.com,user14,P,FMIPA,Pendidikan Ekonomi,2020,,,Pendidikan Masyarakat
+user15,user15@gmail.com,user15,P,FMIPA,Pendidikan Tata Boga,2018,,,Pendidikan Bahasa Indonesia
+user16,user16@gmail.com,user16,L,Fakultas Bahasa dan Seni,PGPAUD,2019,,,Pendidikan Bahasa Inggris
+user17,user17@gmail.com,user17,P,Fakultas Bahasa dan Seni,Pendidikan Tata Busana,2023,,,Pendidikan Bahasa Perancis
+user18,user18@gmail.com,user18,L,Fakultas Ilmu Pendidikan,Pendidikan Teknik Bangunan,2022,,,Pendidikan Bahasa Jerman
+user19,user19@gmail.com,user19,P,FMIPA,Pendidikan Kimia,2020,,,Pendidikan Seni Rupa
+user20,user20@gmail.com,user20,P,Fakultas Teknik,Seni Pertunjukan,2021,,,Pendidikan Tari
+user21,user21@gmail.com,user21,L,Fakultas Ilmu Pendidikan,Matematika,2020,,,Pendidikan Musik
+user22,user22@gmail.com,user22,P,Fakultas Teknik,Pend. PKn,2018,,,Sastra Indonesia
+user23,user23@gmail.com,user23,P,FMIPA,Teknik Sipil,2020,,,Sastra Inggris
+user24,user24@gmail.com,user24,L,Fakultas Teknik,PKO,2018,,,Seni Pertunjukan
+user25,user25@gmail.com,user25,P,Fakultas Teknik,Pendidikan Biologi,2019,,,Pend. PKn
+user26,user26@gmail.com,user26,P,FMIPA,PPBK,2019,,,Pendidikan Geografi
+user27,user27@gmail.com,user27,L,Fakultas Ekonomi,Pend. PKn,2020,,,Pendidikan Sejarah
+user28,user28@gmail.com,user28,P,FIK,Pendidikan Sejarah,2022,,,Pendidikan Antropologi
+user29,user29@gmail.com,user29,L,Fakultas Ekonomi,PKO,2021,,,Pendidikan Matematika
+user30,user30@gmail.com,user30,P,Fakultas Ilmu Sosial,Sastra Indonesia,2020,,,Pendidikan Fisika
+,,,,,,,,,Pendidikan Kimia
+,,,,,,,,,Pendidikan Biologi
+,,,,,,,,,Matematika
+,,,,,,,,,Kimia
+,,,,,,,,,Biologi
+,,,,,,,,,Fisika
+,,,,,,,,,Pendidikan IPA
+,,,,,,,,,Ilmu Komputer
+,,,,,,,,,Pendidikan Teknik Mesin
+,,,,,,,,,Pendidikan Teknik Bangunan
+,,,,,,,,,Pendidikan Teknik Elektro
+,,,,,,,,,Pendidikan Otomotif
+,,,,,,,,,Pendidikan Tata Boga
+,,,,,,,,,Pendidikan Tata Busana
+,,,,,,,,,Pendidikan Tata Rias
+,,,,,,,,,Pendidikan TIK
+,,,,,,,,,Teknik Elektro
+,,,,,,,,,Teknik Sipil
+,,,,,,,,,Gizi
+,,,,,,,,,Arsitektur
+,,,,,,,,,PJKR
+,,,,,,,,,PKO
+,,,,,,,,,Ilmu Keolahragaan
+,,,,,,,,,Pendidikan Akuntansi
+,,,,,,,,,Pendidikan Ekonomi
+,,,,,,,,,PAP
+,,,,,,,,,Pendidikan Bisnis
+,,,,,,,,,Akuntansi
+,,,,,,,,,Manajemen
+,,,,,,,,,Ilmu Ekonomi
+,,,,,,,,,Bisnis Digital
+,,,,,,,,,Kewirausahaan

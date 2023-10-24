@@ -1,0 +1,64 @@
+content:FacultyList,
+faculty_name,
+Fakultas Ilmu Pendidikan,
+Fakultas Bahasa dan Seni,
+Fakultas Ilmu Sosial,
+FMIPA,
+Fakultas Teknik,
+FIK,
+Fakultas Ekonomi,
+,
+content:MajorList,
+major_name,faculty_name
+PGSD,Fakultas Ilmu Pendidikan
+PGPAUD,Fakultas Ilmu Pendidikan
+PPBK,Fakultas Ilmu Pendidikan
+Pendidikan Masyarakat,Fakultas Ilmu Pendidikan
+Pendidikan Bahasa Indonesia,Fakultas Bahasa dan Seni
+Pendidikan Bahasa Inggris,Fakultas Bahasa dan Seni
+Pendidikan Bahasa Perancis,Fakultas Bahasa dan Seni
+Pendidikan Bahasa Jerman,Fakultas Bahasa dan Seni
+Pendidikan Seni Rupa,Fakultas Bahasa dan Seni
+Pendidikan Tari,Fakultas Bahasa dan Seni
+Pendidikan Musik,Fakultas Bahasa dan Seni
+Sastra Indonesia,Fakultas Bahasa dan Seni
+Sastra Inggris,Fakultas Bahasa dan Seni
+Seni Pertunjukan,Fakultas Bahasa dan Seni
+Pend. PKn,Fakultas Ilmu Sosial
+Pendidikan Geografi,Fakultas Ilmu Sosial
+Pendidikan Sejarah,Fakultas Ilmu Sosial
+Pendidikan Antropologi,Fakultas Ilmu Sosial
+Pendidikan Matematika,FMIPA
+Pendidikan Fisika,FMIPA
+Pendidikan Kimia,FMIPA
+Pendidikan Biologi,FMIPA
+Matematika,FMIPA
+Kimia,FMIPA
+Biologi,FMIPA
+Fisika,FMIPA
+Pendidikan IPA,FMIPA
+Ilmu Komputer,FMIPA
+Pendidikan Teknik Mesin,Fakultas Teknik
+Pendidikan Teknik Bangunan,Fakultas Teknik
+Pendidikan Teknik Elektro,Fakultas Teknik
+Pendidikan Otomotif,Fakultas Teknik
+Pendidikan Tata Boga,Fakultas Teknik
+Pendidikan Tata Busana,Fakultas Teknik
+Pendidikan Tata Rias,Fakultas Teknik
+Pendidikan TIK,Fakultas Teknik
+Teknik Elektro,Fakultas Teknik
+Teknik Sipil,Fakultas Teknik
+Gizi,Fakultas Teknik
+Arsitektur,Fakultas Teknik
+PJKR,FIK
+PKO,FIK
+Ilmu Keolahragaan,FIK
+Pendidikan Akuntansi,Fakultas Ekonomi
+Pendidikan Ekonomi,Fakultas Ekonomi
+PAP,Fakultas Ekonomi
+Pendidikan Bisnis,Fakultas Ekonomi
+Akuntansi,Fakultas Ekonomi
+Manajemen,Fakultas Ekonomi
+Ilmu Ekonomi,Fakultas Ekonomi
+Bisnis Digital,Fakultas Ekonomi
+Kewirausahaan,Fakultas Ekonomi

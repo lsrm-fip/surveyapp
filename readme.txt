@@ -8,4 +8,4 @@ Setting Up:
 7. Migrate
 8. Distribute university data: 
 	python manage.py load_univ_data --csv userprofile/univ_data.csv
-	
+9. Copy database db.sqlite3 --> consist of survey data

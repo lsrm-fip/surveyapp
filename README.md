@@ -1,6 +1,6 @@
-#Surveyapp
+# Surveyapp
 
-##Website pengembangan layanan survey untuk mengukur resiliensi akademik mahasiwa di lingkungan kampus Universitas Negeri Medan
+## Website pengembangan layanan survey untuk mengukur resiliensi akademik mahasiwa di lingkungan kampus Universitas Negeri Medan
 
 Setting Up:
 1. Create venv

@@ -129,7 +129,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <script>
-    function myfunc() {
+   function update_major() {
         document.getElementById("id_major").innerHTML = "";
         $.ajax({
             type: 'GET',
@@ -149,8 +149,8 @@
             },
         });
     }
-    document.getElementById("id_faculty").addEventListener("change", myfunc);
-    document.getElementById("id_major").addEventListener("click", myfunc);
+    document.getElementById("id_faculty").addEventListener("change", update_major);
+    // document.getElementById("id_major").addEventListener("click", update_major);
 </script>
 
 {% endblock %}

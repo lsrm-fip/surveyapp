@@ -36,10 +36,9 @@ def profile(request):
         if user_exists:
             user_profile.fullname = form.data["fullname"]
             user_profile.gender = form.data["gender"]
-            user_profile.batch = form.data["batch"]
             user_profile.faculty = FacultyList.objects.get(pk=form.data["faculty"])
             user_profile.major = MajorList.objects.get(pk=form.data["major"])
-            print(form.data["major"])
+            user_profile.batch = form.data["batch"]
             user_profile.save()
         else:
             ProfileList.objects.create(

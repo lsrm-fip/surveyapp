@@ -18,7 +18,9 @@ To populate dummy samples:
 1. Create users model:
 	python manage.py gen_dummy_users (*set the number of user in the code)
 2. Append users properties
-	python manage.py gen_user_profile --csv 
+	python manage.py gen_user_profile --csv userprofile/user_profile.csv
+3. Append users response
+	python magne.py 
 
 Deployement:
 1. Git clone 

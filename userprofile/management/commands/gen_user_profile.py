@@ -7,7 +7,7 @@ from userprofile.models import FacultyList, MajorList, ProfileList
 
 
 class Command(BaseCommand):
-    help = "Populate user profile details from csv."
+    help = "Load university faculty and major data from a CSV file."
 
     def add_arguments(self, parser):
         parser.add_argument("--csv", type=str)
@@ -26,9 +26,7 @@ class Command(BaseCommand):
             with open(options["csv"]) as csvfile:
                 model_data = csv.reader(csvfile)
                 for i, row in enumerate(model_data):
-                    if max(
-                        [len(cell.strip()) for cell in row[1:] + [""]]
-                    ) == 0 and m.match(row[0]):
+                    if max([len(cell.strip()) for cell in row[1:] + [""]]) == 0 and m.match(row[0]):
                         model_name = m.match(row[0]).groups()[0]
                         models[model_name] = []
                         header = None
@@ -50,6 +48,7 @@ class Command(BaseCommand):
             user = User.objects.get(email=data_dict["owner_email"])
             faculty = FacultyList.objects.get(faculty=data_dict["faculty"])
             major = MajorList.objects.get(major=data_dict["major"])
+
             m, created = ProfileList.objects.get_or_create(
                 owner=user,
                 fullname=data_dict["fullname"],

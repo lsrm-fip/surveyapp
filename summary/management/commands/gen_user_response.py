@@ -1,10 +1,10 @@
 import csv
 import re
+import random 
 
 from authentication.models import User
 from django.core.management.base import BaseCommand, CommandError
-from djf_surveys.models import Survey, UserAnswer
-
+from djf_surveys.models import Survey, UserAnswer, Answer
 
 class Command(BaseCommand):
     help = "Generate user's response from csv."
@@ -44,11 +44,20 @@ class Command(BaseCommand):
         except FileNotFoundError:
             raise CommandError('File "{}" does not exist'.format(options["csv"]))
 
+
+        value_list = ["Tidak Mampu - 1","Kurang Mampu - 2","Cukup Mampu - 3","Mampu - 4","Sangat Mampu - 5","Sepenuhnya Mampu - 6"]
+
         for data_dict in models.get("Survey", []):
             user = User.objects.get(email=data_dict["user_email"])
-            suvey_id = Survey.objects.get(id=data_dict["survey_id"])
-            m, created = UserAnswer.objects.get_or_create(survey=suvey_id, user=user)
-            if created:
-                print("Survey for {} has ben generated".format(data_dict["user_email"]))
+            survey_id = Survey.objects.get(id=data_dict["survey_id"])
+            m, object_created = UserAnswer.objects.get_or_create(survey=survey_id, user=user)
+            if object_created:
+                print("UserAnswer object for {} has been generated".format(data_dict["user_email"]))
+            user_answer_id = getattr(m,'id')
+            for i in range(14):
+                value = random.choice(value_list)
+                n, answer_created = Answer.objects.get_or_create(user_answer_id=user_answer_id, question_id = i+1, defaults={"value": value})         
+                if answer_created:
+                    print("Answers for {} has been generated".format(data_dict["user_email"]))     
 
         print("Import complete")

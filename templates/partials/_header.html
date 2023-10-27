@@ -50,7 +50,7 @@
                     </li>
                     {% if user.is_superuser %}
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="surveys/dashboard/">
+                        <a class="dropdown-item d-flex align-items-center" href="{% url 'dashboard' %}">
                             <i class="ri ri-admin-line"></i>
                             <span>Dashboard</span>
                         </a>

@@ -1,32 +1,32 @@
-content:ProfileList,,,,,,
-,owner_email,fullname,gender,faculty,major,batch
-user1,user1@gmail.com,Luna Rafles,P,FMIPA,Pendidikan Tari,2020
-user2,user2@gmail.com,Evi Ridho,P,FMIPA,Pendidikan Matematika,2022
-user3,user3@gmail.com,Silmi Ratu Hidayatullah,P,FIK,PGSD,2021
-user4,user4@gmail.com,Siti Suputra,P,Fakultas Ilmu Sosial,Ilmu Ekonomi,2020
-user5,user5@gmail.com,Ayu Shalimah,P,FMIPA,PGSD,2020
-user6,user6@gmail.com,Qatrun Eda,P,Fakultas Teknik,Pendidikan Teknik Bangunan,2018
-user7,user7@gmail.com,Jihaan Prayogi,P,Fakultas Teknik,Pendidikan Musik,2019
-user8,user8@gmail.com,Tiffany Palit,P,Fakultas Ilmu Sosial,Pend. PKn,2019
-user9,user9@gmail.com,Lisna Noverlia,P,Fakultas Ilmu Sosial,Pendidikan Seni Rupa,2023
-user10,user10@gmail.com,Chairinaya Ahugrah,P,Fakultas Ilmu Pendidikan,Pendidikan Tata Busana,2022
-user11,user11@gmail.com,Abi Hilary Persadani,P,Fakultas Ekonomi,Pendidikan Tata Rias,2020
-user12,user12@gmail.com,Yusnizar Amalia,P,FMIPA,Pendidikan Tata Rias,2022
-user13,user13@gmail.com,Nanda Nugraha,P,Fakultas Ilmu Sosial,Sastra Inggris,2021
-user14,user14@gmail.com,Elliza Hasan,P,Fakultas Ekonomi,Arsitektur,2020
-user15,user15@gmail.com,Lavina Evelin Santi,P,Fakultas Ilmu Pendidikan,Pendidikan Tari,2018
-user16,user16@gmail.com,Mercy Septefani,P,Fakultas Ilmu Sosial,Pendidikan IPA,2019
-user17,user17@gmail.com,Ryan Nirmala,L,Fakultas Ekonomi,PGSD,2023
-user18,user18@gmail.com,Geraldi Rahman,L,Fakultas Ilmu Sosial,Pendidikan Tari,2022
-user19,user19@gmail.com,Syahid Natalia,L,Fakultas Ilmu Sosial,Pendidikan Teknik Elektro,2020
-user20,user20@gmail.com,Adam Ervya,L,FMIPA,Pendidikan Tata Busana,2021
-user21,user21@gmail.com,Bimo Azis,L,Fakultas Ilmu Pendidikan,Manajemen,2020
-user22,user22@gmail.com,Kemal Cahyadi,L,FIK,Pendidikan TIK,2018
-user23,user23@gmail.com,Aulia Wildan Ramadhan,L,FMIPA,Teknik Elektro,2020
-user24,user24@gmail.com,Satrya Zain,L,Fakultas Ilmu Sosial,Pendidikan Bahasa Indonesia,2018
-user25,user25@gmail.com,Dwiki Isnandri,L,Fakultas Ekonomi,Pendidikan Seni Rupa,2019
-user26,user26@gmail.com,Praditia Larassati,L,Fakultas Bahasa dan Seni,Pendidikan IPA,2019
-user27,user27@gmail.com,Christian Khansa,L,Fakultas Teknik,PGPAUD,2020
-user28,user28@gmail.com,Ressy Muhammad Fitriani,L,FMIPA,PAP,2022
-user29,user29@gmail.com,Dede Nisrina,L,Fakultas Ekonomi,Ilmu Keolahragaan,2021
-user30,user30@gmail.com,Ismail Alghifari,L,FIK,Pendidikan Fisika,2020
+content:ProfileList,,,,,,,
+,owner_email,fullname,nim,gender,faculty,major,batch
+user1,user1@gmail.com,Luna Rafles,6173317,P,FMIPA,Pendidikan Tari,2020
+user2,user2@gmail.com,Evi Ridho,1369946,P,FMIPA,Pendidikan Matematika,2022
+user3,user3@gmail.com,Silmi Ratu Hidayatullah,7037295,P,FIK,PGSD,2021
+user4,user4@gmail.com,Siti Suputra,3722828,P,Fakultas Ilmu Sosial,Ilmu Ekonomi,2020
+user5,user5@gmail.com,Ayu Shalimah,8404667,P,FMIPA,PGSD,2020
+user6,user6@gmail.com,Qatrun Eda,4146312,P,Fakultas Teknik,Pendidikan Teknik Bangunan,2018
+user7,user7@gmail.com,Jihaan Prayogi,7575730,P,Fakultas Teknik,Pendidikan Musik,2019
+user8,user8@gmail.com,Tiffany Palit,2417348,P,Fakultas Ilmu Sosial,Pend. PKn,2019
+user9,user9@gmail.com,Lisna Noverlia,4658423,P,Fakultas Ilmu Sosial,Pendidikan Seni Rupa,2023
+user10,user10@gmail.com,Chairinaya Ahugrah,9704609,P,Fakultas Ilmu Pendidikan,Pendidikan Tata Busana,2022
+user11,user11@gmail.com,Abi Hilary Persadani,7705868,P,Fakultas Ekonomi,Pendidikan Tata Rias,2020
+user12,user12@gmail.com,Yusnizar Amalia,2942483,P,FMIPA,Pendidikan Tata Rias,2022
+user13,user13@gmail.com,Nanda Nugraha,6869892,P,Fakultas Ilmu Sosial,Sastra Inggris,2021
+user14,user14@gmail.com,Elliza Hasan,8883643,P,Fakultas Ekonomi,Arsitektur,2020
+user15,user15@gmail.com,Lavina Evelin Santi,1147331,P,Fakultas Ilmu Pendidikan,Pendidikan Tari,2018
+user16,user16@gmail.com,Mercy Septefani,7627495,P,Fakultas Ilmu Sosial,Pendidikan IPA,2019
+user17,user17@gmail.com,Ryan Nirmala,7576344,L,Fakultas Ekonomi,PGSD,2023
+user18,user18@gmail.com,Geraldi Rahman,2447973,L,Fakultas Ilmu Sosial,Pendidikan Tari,2022
+user19,user19@gmail.com,Syahid Natalia,4249449,L,Fakultas Ilmu Sosial,Pendidikan Teknik Elektro,2020
+user20,user20@gmail.com,Adam Ervya,1297471,L,FMIPA,Pendidikan Tata Busana,2021
+user21,user21@gmail.com,Bimo Azis,2754950,L,Fakultas Ilmu Pendidikan,Manajemen,2020
+user22,user22@gmail.com,Kemal Cahyadi,1543601,L,FIK,Pendidikan TIK,2018
+user23,user23@gmail.com,Aulia Wildan Ramadhan,9891668,L,FMIPA,Teknik Elektro,2020
+user24,user24@gmail.com,Satrya Zain,4994327,L,Fakultas Ilmu Sosial,Pendidikan Bahasa Indonesia,2018
+user25,user25@gmail.com,Dwiki Isnandri,3105236,L,Fakultas Ekonomi,Pendidikan Seni Rupa,2019
+user26,user26@gmail.com,Praditia Larassati,9155672,L,Fakultas Bahasa dan Seni,Pendidikan IPA,2019
+user27,user27@gmail.com,Christian Khansa,2876813,L,Fakultas Teknik,PGPAUD,2020
+user28,user28@gmail.com,Ressy Muhammad Fitriani,3159608,L,FMIPA,PAP,2022
+user29,user29@gmail.com,Dede Nisrina,7614903,L,Fakultas Ekonomi,Ilmu Keolahragaan,2021
+user30,user30@gmail.com,Ismail Alghifari,9675020,L,FIK,Pendidikan Fisika,2020

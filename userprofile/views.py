@@ -36,6 +36,7 @@ def profile(request):
         if user_exists:
             user_profile.fullname = form.data["fullname"]
             user_profile.gender = form.data["gender"]
+            user_profile.nim = form.data["nim"]
             user_profile.faculty = FacultyList.objects.get(pk=form.data["faculty"])
             user_profile.major = MajorList.objects.get(pk=form.data["major"])
             user_profile.batch = form.data["batch"]
@@ -45,6 +46,7 @@ def profile(request):
                 owner = request.user,
                 fullname =form.data["fullname"],
                 gender = form.data["gender"],
+                nim = form.data["nim"],
                 faculty = FacultyList.objects.get(pk=form.data["faculty"]),
                 major = MajorList.objects.get(pk=form.data["major"]),
                 batch = form.data["batch"],

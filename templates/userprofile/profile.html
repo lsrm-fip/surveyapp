@@ -77,6 +77,14 @@
                             {% if user.is_superuser %}
                             {% else %}
                             <div class="row">
+                                <div class="col-lg-3 col-md-4 label">NIM</div>
+                                {% if user_profile.nim %}
+                                <div class="col-lg-9 col-md-8">{{user_profile.nim}}</div>
+                                {% else %}
+                                <div class="col-lg-9 col-md-8">---</div>
+                                {% endif %}
+                            </div>
+                            <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
                                 <div class="col-lg-9 col-md-8">{{user_profile.get_gender_display}}</div>
                             </div>
@@ -97,17 +105,17 @@
                                 {% endif %}
                             </div>
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">NIM</div>
-                                {% if user_profile.nim %}
-                                <div class="col-lg-9 col-md-8">{{user_profile.nim}}</div>
+                                <div class="col-lg-3 col-md-4 label">Angkatan</div>
+                                {% if user_profile.batch %}
+                                <div class="col-lg-9 col-md-8">{{user_profile.batch}}</div>
                                 {% else %}
                                 <div class="col-lg-9 col-md-8">---</div>
                                 {% endif %}
                             </div>
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Angkatan</div>
-                                {% if user_profile.batch %}
-                                <div class="col-lg-9 col-md-8">{{user_profile.batch}}</div>
+                                <div class="col-lg-3 col-md-4 label">No. Handphone</div>
+                                {% if user_profile.phone %}
+                                <div class="col-lg-9 col-md-8">{{user_profile.phone}}</div>
                                 {% else %}
                                 <div class="col-lg-9 col-md-8">---</div>
                                 {% endif %}

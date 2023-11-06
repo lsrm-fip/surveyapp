@@ -190,16 +190,15 @@
                             <h5 class="card-title"><span>Rincian per topik</span></h5>
                             <div class="activity">
 
-                                {% for skor in skor_anda %}
                                 <div class="activity-item d-flex">
-                                    <div class="activite-label">Skor {{skor}}</div>
-                                    {% if skor > 4 %}
+                                    <div class="activite-label">Skor {{skor_anda.0}}</div>
+                                    {% if skor_anda.0 > 4 %}
                                     <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                                     <div class="activity-content">
                                         <a href="#" class="fw-bold text-dark">{{konstruk.0}}</a> anda berada
                                         pada kategori <b>Baik</b>
                                     </div>
-                                    {% elif skor > 2 %}
+                                    {% elif skor_anda.0 > 2 %}
                                     <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
                                     <div class="activity-content">
                                         <a href="#" class="fw-bold text-dark">{{konstruk.0}}</a> anda berada
@@ -213,7 +212,145 @@
                                     </div>
                                     {% endif %}
                                 </div>
-                                {% endfor %}
+
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.1}}</div>
+                                    {% if skor_anda.1 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.1}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.1 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.1}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.1}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.2}}</div>
+                                    {% if skor_anda.2 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.2}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.2 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.2}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.2}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.3}}</div>
+                                    {% if skor_anda.3 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.3}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.3 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.3}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.3}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.4}}</div>
+                                    {% if skor_anda.4 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.4}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.4 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.4}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.4}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.5}}</div>
+                                    {% if skor_anda.5 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.5}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.5 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.5}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.5}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="activity-item d-flex">
+                                    <div class="activite-label">Skor {{skor_anda.6}}</div>
+                                    {% if skor_anda.6 > 4 %}
+                                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.6}}</a> anda berada
+                                        pada kategori <b>Baik</b>
+                                    </div>
+                                    {% elif skor_anda.6 > 2 %}
+                                    <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.6}}</a> anda berada
+                                        pada kategori <b>Cukup</b>
+                                    </div>
+                                    {% else %}
+                                    <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                    <div class="activity-content">
+                                        <a href="#" class="fw-bold text-dark">{{konstruk.6}}</a> anda berada
+                                        pada kategori <b>Rendah</b>
+                                    </div>
+                                    {% endif %}
+                                </div>
 
                             </div>
                         </div>

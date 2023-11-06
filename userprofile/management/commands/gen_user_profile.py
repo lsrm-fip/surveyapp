@@ -54,6 +54,7 @@ class Command(BaseCommand):
                 fullname=data_dict["fullname"],
                 defaults={
                     "gender": data_dict["gender"],
+                    "nim": data_dict["nim"],
                     "batch": data_dict["batch"],
                     "faculty": faculty,
                     "major": major,

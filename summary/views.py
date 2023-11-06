@@ -80,6 +80,9 @@ def summary(request):
         )
         user_score = cal_avg_response(user_answer_id=user_answer_id).tolist()
 
+    user_id = UserAnswer.objects.all().values('user_id')
+    user_profile = ProfileList.objects.filter(id__in = user_id)
+
     construct = [
         "Ketenangan",
         "Komitmen",
@@ -100,6 +103,7 @@ def summary(request):
         "skor_rata_rata": avg_score,
         "skor_anda": user_score,
         "konstruk": construct,
+        "user_profile": user_profile
     }
     
     return render(request, "summary/summary.html", context)

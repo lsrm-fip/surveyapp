@@ -45,7 +45,7 @@ class Command(BaseCommand):
             raise CommandError('File "{}" does not exist'.format(options["csv"]))
 
 
-        value_list = ['tidak_mampu_-_1','kurang_mampu_-_2','cukup_mampu_-_3','mampu_-_4','sangat_mampu_-_5','Sepenuhnya_mampu_-_6']
+        value_list = ['tidak_mampu_-_1','kurang_mampu_-_2','cukup_mampu_-_3','mampu_-_4','sangat_mampu_-_5','sepenuhnya_mampu_-_6']
 
         for data_dict in models.get("Survey", []):
             user = User.objects.get(email=data_dict["user_email"])

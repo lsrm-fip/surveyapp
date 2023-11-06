@@ -89,9 +89,17 @@
                                 {% endif %}
                             </div>
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Jurusan</div>
+                                <div class="col-lg-3 col-md-4 label">Jurusan / Prodi</div>
                                 {% if user_profile.major %}
                                 <div class="col-lg-9 col-md-8">{{user_profile.major}}</div>
+                                {% else %}
+                                <div class="col-lg-9 col-md-8">---</div>
+                                {% endif %}
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">NIM</div>
+                                {% if user_profile.nim %}
+                                <div class="col-lg-9 col-md-8">{{user_profile.nim}}</div>
                                 {% else %}
                                 <div class="col-lg-9 col-md-8">---</div>
                                 {% endif %}

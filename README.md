@@ -15,11 +15,11 @@ Setting Up:
 9. Done
 
 To populate dummy samples:
-1. Create users model:
-	python manage.py gen_dummy_users (*set the number of user in the code)
-2. Append users properties
+1. Create *users model:\
+	python manage.py gen_dummy_users (*: set the number of user in the code)
+2. Append users properties:\
 	python manage.py gen_user_profile --csv userprofile/user_profile.csv
-3. Create UserAnswer object and append users answers
+3. Create UserAnswer object and append users answers:\
 	python manage.py gen_user_response --csv summary/user_response.csv
 
 Deployement:

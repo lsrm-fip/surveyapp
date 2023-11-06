@@ -83,6 +83,11 @@ def summary(request):
     user_id = UserAnswer.objects.all().values('user_id')
     user_profile = ProfileList.objects.filter(id__in = user_id)
 
+    user_response = None
+    response_exists = UserAnswer.objects.filter(user_id=request.user.id).exists()
+    if response_exists:
+        user_response = UserAnswer.objects.get(user_id=request.user.id)
+
     construct = [
         "Ketenangan",
         "Komitmen",
@@ -103,7 +108,8 @@ def summary(request):
         "skor_rata_rata": avg_score,
         "skor_anda": user_score,
         "konstruk": construct,
-        "user_profile": user_profile
+        "user_profile": user_profile,
+        "user_response": user_response,
     }
     
     return render(request, "summary/summary.html", context)

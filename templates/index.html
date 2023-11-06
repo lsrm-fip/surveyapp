@@ -89,7 +89,7 @@
                             </div><!-- End Default Accordion Example -->
 
                             {% if user.is_superuser %}
-                            {% elif user_profile.fullname and user_profile.faculty and user_profile.major and user_profile.nim%}
+                            {% elif user_profile.fullname and user_profile.nim and user_profile.faculty and user_profile.major %}
                             {% else %}
                             {% include 'partials/_profile_modal.html' %}
                             {% endif %}
@@ -99,7 +99,7 @@
 
                             {% if user.is_superuser %}
                             <button type="button" class="btn btn-primary btn-sm disabled">Isi Kuisioner</button>
-                            {% elif user_profile.fullname and user_profile.faculty and user_profile.major and user_profile.nim%}
+                            {% elif user_profile.fullname and user_profile.nim and user_profile.faculty and user_profile.major%}
                             <a href="surveys/create/survey-resiliensi-mahasiswa-unimed/"><button type="button"
                                     class="btn btn-primary btn-sm">Isi Kuisioner</button></a>
                             {% else %}

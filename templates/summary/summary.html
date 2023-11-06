@@ -74,15 +74,12 @@
                     </div>
                 </div><!-- End Total Jurusan -->
 
+                {% if user.is_superuser %}
                 <div class="col-xxl-8 col-lg-9">
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Datatables</h5>
-                            <p>Add lightweight datatables to your project with using the <a
-                                    href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple
-                                    DataTables</a> library. Just add <code>.datatable</code> class name to any table you
-                                wish to conver to a datatable</p>
+                            <h5 class="card-title">Data Responden</h5>
 
                             <!-- Table with stripped rows -->
                             <table class="table datatable">
@@ -96,12 +93,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for fullname in user_profile %}
+                                    {% for profile in user_profile %}
                                     <tr>
                                         <th scope="row">{{forloop.counter}}</th>
-                                        <td>{{fullname}}</td>
-                                        <td>Designer</td>
-                                        <td>28</td>
+                                        <td>{{profile.fullname}}</td>
+                                        <td>{{profile.faculty}}</td>
+                                        <td>{{profile.major}}</td>
                                         <td>2016-05-25</td>
                                     </tr>
                                     {% endfor %}
@@ -111,13 +108,15 @@
 
                         </div>
                     </div>
-
                 </div>
+                {% endif %}
+               
                 <div class="col-xxl-4 col-lg-6"> <!-- Radar Chart -->
                     <div class="card">
                         <div class="card-body pb-0">
                             <h5 class="card-title">Radar Chart<span> | Anda vs Rata-Rata</span></h5>
                             <div id="radarChart" style="min-height: 400px;" class="echart"></div>
+                            
                             <script>
                                 var avg_score = JSON.parse('{{skor_rata_rata}}')
                                 var user_score = JSON.parse('{{skor_anda}}')
@@ -174,6 +173,7 @@
                                     });
                                 });
                             </script>
+                            
                         </div>
                     </div>
                 </div> <!-- End Radar Chart -->

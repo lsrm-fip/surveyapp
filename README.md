@@ -17,16 +17,19 @@ Setting Up:
 To populate dummy samples:
 1. Create users model:\
 	python manage.py gen_dummy_users (set the number of user in the code)
-2. Append users properties:\
+2. Distribute university faculty and major list:\
+	python manage.py load_univ_data --csv userprofile/univ_data.csv
+3. Append users properties:\
 	python manage.py gen_user_profile --csv userprofile/user_profile.csv
-3. Create UserAnswer object and append users answers:\
+4. Create UserAnswer object and append users answers:\
 	python manage.py gen_user_response --csv summary/user_response.csv
 
 Deployement:
 1. Git clone 
-2. Install requirements
-3. Collectstatic
-4. Copy database and .env file
-5. Makemigrations and migrate
+2. Activate virtual environtment
+3. Install requirements
+4. Collectstatic
+5. Copy database and .env file
+6. Makemigrations and migrate
 7. Overwrite modified djf_surveys library to current djf_surveys folder --> use tar and unzip
 8. Change allowed host and set Debug to False

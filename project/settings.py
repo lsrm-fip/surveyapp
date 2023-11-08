@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     "djf_surveys",
     "crispy_forms",
     "crispy_bootstrap5",
-    "rest_framework"
 ]
 
 AUTH_USER_MODEL = "authentication.User"

@@ -82,7 +82,7 @@
                             <h5 class="card-title">Data Responden</h5>
 
                             <!-- Table with stripped rows -->
-                            <table class="table datatable">
+                            <table id="example" class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -93,13 +93,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for profile in user_profile %}
+                                    {% for profile,score in ziplist %}
                                     <tr>
                                         <th scope="row">{{forloop.counter}}</th>
-                                        <td>{{profile.fullname}}</td>
+                                        <td><a href="{% url 'getuserscore' profile.pk %}">{{profile.fullname}}</a></td>
                                         <td>{{profile.faculty}}</td>
                                         <td>{{profile.major}}</td>
-                                        <td>2016-05-25</td>
+                                        <td>{{score}}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -120,6 +120,17 @@
                             <script>
                                 var avg_score = JSON.parse('{{skor_rata_rata}}')
                                 var user_score = JSON.parse('{{skor_anda}}')
+                                var user_score_all = JSON.parse("{{user_score_all|escapejs}}");
+                                for (var i = 0, iLen = user_score_all.length; i < iLen; i++) {
+                                    var score_check = user_score_all[i]
+                                    if (score_check['fullname']==='{{ user_profile }}' ) {
+                                        user_score_select = score_check['score']
+                                        console.log('{{ user_profile }}')
+                                        console.log(score_check['score'])
+                                    }
+                                }
+
+
                                 document.addEventListener("DOMContentLoaded", () => {
                                     var radarChart = echarts.init(document.querySelector("#radarChart")).setOption({
                                         legend: {
@@ -405,5 +416,15 @@
         </div>
     </div>
 </section>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    new DataTable('#example');
+</script>
 
 {% endblock %}

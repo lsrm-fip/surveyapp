@@ -82,10 +82,10 @@
                             <h5 class="card-title">Data Responden</h5>
 
                             <!-- Table with stripped rows -->
-                            <table id="example" class="table table-striped">
+                            <table id="example" class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th scope="col"></th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Fakultas</th>
                                         <th scope="col">Jurusan</th>
@@ -95,7 +95,7 @@
                                 <tbody>
                                     {% for profile,score in ziplist %}
                                     <tr>
-                                        <th scope="row">{{forloop.counter}}</th>
+                                        <td></td>
                                         <td><a href="{% url 'getuserscore' profile.pk %}">{{profile.fullname}}</a></td>
                                         <td>{{profile.faculty}}</td>
                                         <td>{{profile.major}}</td>
@@ -110,20 +110,20 @@
                     </div>
                 </div>
                 {% endif %}
-               
+
                 <div class="col-xxl-4 col-lg-6"> <!-- Radar Chart -->
                     <div class="card">
                         <div class="card-body pb-0">
                             <h5 class="card-title">Radar Chart<span> | Anda vs Rata-Rata</span></h5>
                             <div id="radarChart" style="min-height: 400px;" class="echart"></div>
-                            
+
                             <script>
                                 var avg_score = JSON.parse('{{skor_rata_rata}}')
                                 var user_score = JSON.parse('{{skor_anda}}')
                                 var user_score_all = JSON.parse("{{user_score_all|escapejs}}");
                                 for (var i = 0, iLen = user_score_all.length; i < iLen; i++) {
                                     var score_check = user_score_all[i]
-                                    if (score_check['fullname']==='{{ user_profile }}' ) {
+                                    if (score_check['fullname'] === '{{ user_profile }}') {
                                         user_score_select = score_check['score']
                                         console.log('{{ user_profile }}')
                                         console.log(score_check['score'])
@@ -184,7 +184,7 @@
                                     });
                                 });
                             </script>
-                            
+
                         </div>
                     </div>
                 </div> <!-- End Radar Chart -->
@@ -270,7 +270,7 @@
                                     {% endif %}
                                 </div>
 
-                                
+
                                 <div class="activity-item d-flex">
                                     <div class="activite-label">Skor {{skor_anda.3}}</div>
                                     {% if skor_anda.3 > 4 %}
@@ -424,7 +424,28 @@
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
 <script>
-    new DataTable('#example');
+    const table = new DataTable('#example', {
+        columnDefs: [
+            {
+                searchable: false,
+                orderable: false,
+                targets: 0
+            }
+        ],
+        order: [[1, 'asc']]
+    });
+
+    table
+        .on('order.dt search.dt', function () {
+            let i = 1;
+
+            table
+                .cells(null, 0, { search: 'applied', order: 'applied' })
+                .every(function (cell) {
+                    this.data(i++);
+                });
+        })
+        .draw();
 </script>
 
 {% endblock %}

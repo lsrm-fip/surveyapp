@@ -62,5 +62,5 @@ def get_major(request):
     majors = list(MajorList.objects.filter(faculty__in=faculty).values("major"))
     majors_id = list(MajorList.objects.filter(faculty__in=faculty).values("id"))
     response_data = {"majors": majors, "majors_id": majors_id}
-
+    
     return JsonResponse(response_data)
